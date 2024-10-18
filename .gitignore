@@ -1,10 +1,4 @@
-_site
-.jekyll-metadata
-*.css
 .DS_Store
-.sass-cache/
-.jekyll-cache
 node_modules
-
 .astro
 dist
