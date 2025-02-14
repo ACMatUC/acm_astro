@@ -25,7 +25,7 @@ const aboutAuthor = post?.data.aboutAuthor;
 <Layout title={post!.data.title}>
   {
     post!.data.imageURL && (
-      <div class="grid place-items-center w-screen h-[50vh] overflow-clip">
+      <div class="grid place-items-center w-full max-md:h-80 h-[40vh] overflow-clip">
         <img
           src={post!.data.imageURL}
           alt={post!.data.title}
@@ -34,13 +34,7 @@ const aboutAuthor = post?.data.aboutAuthor;
       </div>
     )
   }
-  <header class="ml-12 mb-8 mt-8">
-    <button
-      class="text-red text-lg font-display uppercase flex items-center gap-2"
-      onclick="history.back()"
-    >
-      Back
-    </button>
+  <header class="ml-8 lg:ml-32 mb-8 mt-8">
     <h1 class="mt-2 text-3xl text-red">{post!.data.title}</h1>
     <p class="text-lg my-1 font-display uppercase">
       {post!.data.date.toLocaleDateString("en-US", { timeZone: "UTC" })} &bull; BY {post!.data.author}
@@ -49,12 +43,12 @@ const aboutAuthor = post?.data.aboutAuthor;
       {post!.data.tags.map((tag: string) => <BlogTag tag={tag} />)}
     </span>
   </header>
-  <main class="mb-8 lg:ml-24 ml-8 prose prose-invert prose-neutral prose-p:indent-8 prose-li:marker:text-neutral-400">
+  <article class="mb-8 max-lg:md:ml-20 lg:ml-48 mx-8 prose !prose-invert prose-neutral prose-p:indent-8 prose-li:marker:text-neutral-400">
     <Content />
-  </main>
+  </article>
   {
     aboutAuthor && (
-      <aside class="ml-12 xl:ml-16 mb-8 max-w-4xl">
+      <aside class="ml-12 lg:ml-24 mb-8 max-w-4xl">
         <h2 class="text-2xl mb-2">About the Author</h2>
         <Profile
           name={`${post?.data.author}`}
